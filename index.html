@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <!-- UPDATED TITLE & DESCRIPTION -->
+  <title>Dynaprizes Store - Your All-in-One Shopping App | Best Prices Across All Stores | Launching April 2026</title>
+  
+  <meta name="description" content="Dynaprizes Store is your complete shopping solution. Shop from Amazon, Flipkart, Myntra, Ajio & more in ONE app. Best prices guaranteed. No need to switch apps. Launching April 2026.">
+  
+  <!-- ENHANCED KEYWORDS -->
+  <meta name="keywords" content="dynaprizes store, all in one shopping app, shop from all stores one app, amazon flipkart myntra one app, best prices guaranteed, shopping app india, price comparison app, track all orders">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <link rel="canonical" href="https://dynaprizes.com">
+  
+  <!-- UPDATED OPEN GRAPH -->
+  <meta property="og:title" content="Dynaprizes Store - Your Complete Shopping App">
+  <meta property="og:description" content="Shop from ALL stores in ONE app. Best prices guaranteed. Track everything in one place. Why download 10 apps when one does it all?">
+  <meta property="og:image" content="https://dynaprizes.com/dynaprizes-logo.jpg">
+  <meta property="og:url" content="https://dynaprizes.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dynaprizes Store">
+  
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dynaprizes Store - One App, All Shopping">
+  <meta name="twitter:description" content="Your complete shopping solution. Why use 10 apps when one does it all? Launching April 2026.">
+  <meta name="twitter:image" content="https://dynaprizes.com/dynaprizes-logo.jpg">
+  
+  <!-- FAVICON -->
+  
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f59e0b">
+  
+  <!-- SITEMAP LINK -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  
+  <style>
+    /* CSS Reset for consistent rendering */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary-gold: #facc6b;
+      --primary-gold-dark: #f59e0b;
+      --bg-dark: #02040a;
+      --bg-card: rgba(15, 23, 42, 0.95);
+      --text-primary: #f9fafb;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --card-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, #0a0f1a 100%);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 4vw, 32px);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .wrap {
+      width: 100%;
+      max-width: min(95vw, 700px);
+      background: var(--bg-card);
+      border-radius: clamp(20px, 4vw, 28px);
+      padding: clamp(24px, 5vw, 48px) clamp(20px, 4vw, 40px);
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(250, 204, 107, 0.15);
+      backdrop-filter: blur(20px);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .wrap::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-gold), var(--primary-gold-dark));
+    }
+    
+    /* Logo */
+    .logo-img {
+      width: clamp(80px, 20vw, 100px);
+      height: clamp(80px, 20vw, 100px);
+      border-radius: clamp(16px, 4vw, 20px);
+      object-fit: contain;
+      margin: 0 auto clamp(20px, 4vw, 24px);
+      display: block;
+      border: 2px solid var(--primary-gold);
+      padding: clamp(6px, 1.5vw, 8px);
+      background: rgba(15, 23, 42, 0.9);
+    }
+    
+    /* Brand Name */
+    .brand-name {
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      font-weight: 800;
+      text-align: center;
+      background: linear-gradient(90deg, var(--primary-gold), var(--primary-gold-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    
+    /* Brand Subtitle */
+    .brand-subtitle {
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      color: var(--primary-gold);
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: clamp(20px, 5vw, 28px);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    
+    /* Main Tagline */
+    .main-tagline {
+      font-size: clamp(1.3rem, 4.5vw, 1.8rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: clamp(12px, 3vw, 16px);
+      line-height: 1.3;
+    }
+    
+    .main-tagline .highlight {
+      color: var(--primary-gold);
+      font-weight: 800;
+    }
+    
+    /* Secondary Tagline */
+    .secondary-tagline {
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 3vw, 1.1rem);
+      text-align: center;
+      margin: 0 auto clamp(28px, 6vw, 40px);
+      line-height: 1.6;
+      max-width: 600px;
+    }
+    
+    /* Value Proposition */
+    .value-proposition {
+      background: rgba(250, 204, 107, 0.08);
+      border-radius: clamp(12px, 3vw, 16px);
+      padding: clamp(20px, 4vw, 28px);
+      margin-bottom: clamp(24px, 5vw, 32px);
+      border: 1px solid rgba(250, 204, 107, 0.2);
+    }
+    
+    .value-title {
+      font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+      font-weight: 700;
+      color: var(--primary-gold);
+      margin-bottom: clamp(16px, 3vw, 20px);
+      text-align: center;
+    }
+    
+    .value-list {
+      list-style: none;
+    }
+    
+    .value-list li {
+      padding: clamp(8px, 2vw, 12px) 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: flex-start;
+      gap: clamp(8px, 2vw, 12px);
+    }
+    
+    .value-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .value-icon {
+      color: var(--primary-gold);
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    
+    .value-text {
+      color: var(--text-secondary);
+      font-size: clamp(0.95rem, 2.5vw, 1rem);
+    }
+    
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+      gap: clamp(12px, 3vw, 16px);
+      margin-bottom: clamp(24px, 5vw, 32px);
+    }
+    
+    .feature-item {
+      background: rgba(30, 41, 59, 0.5);
+      padding: clamp(14px, 3vw, 18px);
+      border-radius: clamp(10px, 2.5vw, 12px);
+      display: flex;
+      align-items: center;
+      gap: clamp(10px, 2.5vw, 14px);
+      border-left: 3px solid var(--primary-gold);
+      transition: var(--transition);
+      font-size: clamp(0.9rem, 2.5vw, 0.95rem);
+    }
+    
+    .feature-item:hover {
+      transform: translateY(-3px);
+      background: rgba(30, 41, 59, 0.8);
+    }
+    
+    .feature-icon {
+      color: var(--primary-gold);
+      font-weight: bold;
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
+      flex-shrink: 0;
+    }
+    
+    /* Timer Section */
+    .timer-section {
+      margin-bottom: clamp(28px, 6vw, 40px);
+    }
+    
+    .timer-section h2 {
+      font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: clamp(20px, 4vw, 28px);
+    }
+    
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(10px, 3vw, 16px);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .box {
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      padding: clamp(14px, 3vw, 20px) clamp(10px, 2vw, 15px);
+      border-radius: clamp(12px, 3vw, 16px);
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-gold), var(--primary-gold-dark));
+    }
+    
+    .value {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 800;
+      color: var(--primary-gold);
+      text-shadow: 0 0 10px rgba(250, 204, 107, 0.4);
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    
+    .label {
+      font-size: clamp(0.75rem, 2vw, 0.85rem);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    /* App Benefit */
+    .app-benefit {
+      background: rgba(250, 204, 107, 0.05);
+      border-radius: clamp(12px, 3vw, 16px);
+      padding: clamp(18px, 4vw, 24px);
+      margin: clamp(20px, 4vw, 28px) 0;
+      border: 1px dashed rgba(250, 204, 107, 0.3);
+      text-align: center;
+    }
+    
+    .app-benefit h3 {
+      color: var(--primary-gold);
+      font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+      margin-bottom: clamp(8px, 2vw, 12px);
+    }
+    
+    .app-benefit p {
+      color: var(--text-secondary);
+      font-size: clamp(0.95rem, 2.5vw, 1rem);
+      margin: 0;
+    }
+    
+    /* Notification Tabs */
+    .notify-section {
+      margin: clamp(24px, 5vw, 32px) 0;
+    }
+    
+    .notify-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: clamp(20px, 4vw, 28px);
+      border-bottom: 1px solid var(--border-color);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .notify-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: clamp(10px, 2.5vw, 14px) clamp(16px, 3vw, 24px);
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+      font-weight: 500;
+      position: relative;
+    }
+    
+    .tab-btn.active {
+      color: var(--primary-gold);
+      background: rgba(250, 204, 107, 0.1);
+    }
+    
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--primary-gold);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Forms */
+    .notify-form {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(12px, 3vw, 16px);
+      margin-bottom: clamp(12px, 3vw, 16px);
+    }
+    
+    .notify-input {
+      padding: clamp(14px, 3vw, 18px);
+      border-radius: clamp(10px, 2.5vw, 12px);
+      border: 1px solid var(--border-color);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-primary);
+      font-size: clamp(0.95rem, 2.5vw, 1rem);
+      transition: var(--transition);
+      width: 100%;
+    }
+    
+    .notify-input:focus {
+      outline: none;
+      border-color: var(--primary-gold);
+      box-shadow: 0 0 0 3px rgba(250, 204, 107, 0.1);
+    }
+    
+    .notify-input::placeholder {
+      color: var(--text-muted);
+    }
+    
+    .notify-btn {
+      padding: clamp(14px, 3vw, 18px);
+      border-radius: clamp(10px, 2.5vw, 12px);
+      border: none;
+      background: linear-gradient(90deg, var(--primary-gold), var(--primary-gold-dark));
+      color: #0f172a;
+      font-weight: 700;
+      font-size: clamp(1rem, 2.5vw, 1.05rem);
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      width: 100%;
+    }
+    
+    .notify-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(250, 204, 107, 0.4);
+    }
+    
+    .small-text {
+      font-size: clamp(0.8rem, 2.2vw, 0.85rem);
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+    
+    /* Retailer Logos */
+    .retailer-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: clamp(8px, 2vw, 12px);
+      margin-top: clamp(28px, 6vw, 40px);
+      padding-top: clamp(20px, 4vw, 28px);
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .retailer-logo {
+      background: rgba(30, 41, 59, 0.8);
+      padding: clamp(8px, 2vw, 10px) clamp(14px, 3vw, 18px);
+      border-radius: clamp(8px, 2vw, 10px);
+      font-size: clamp(0.8rem, 2.2vw, 0.9rem);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    
+    .retailer-logo:hover {
+      background: rgba(250, 204, 107, 0.1);
+      border-color: var(--primary-gold);
+      transform: translateY(-2px);
+    }
+    
+    /* Responsive Breakpoints */
+    @media (min-width: 640px) {
+      .notify-form {
+        flex-direction: row;
+      }
+      
+      .notify-input {
+        flex: 1;
+        min-width: 200px;
+      }
+      
+      .notify-btn {
+        width: auto;
+        min-width: 140px;
+      }
+      
+      .timer {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        max-width: 100%;
+      }
+      
+      .value-list li {
+        align-items: center;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .timer {
+        gap: 20px;
+      }
+      
+      .box {
+        padding: 24px 20px;
+      }
+      
+      .value {
+        font-size: 2.4rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .wrap {
+        max-width: 700px;
+        padding: 48px 60px;
+      }
+      
+      .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    /* Mobile-specific optimizations */
+    @media (max-width: 480px) {
+      .timer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      
+      .box:nth-child(3),
+      .box:nth-child(4) {
+        margin-top: 12px;
+      }
+      
+      .retailer-logo {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+      }
+      
+      .notify-tabs {
+        justify-content: flex-start;
+        padding-bottom: 0;
+      }
+      
+      .value-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      
+      .value-icon {
+        margin-top: 0;
+      }
+    }
+    
+    /* Touch-friendly elements for mobile */
+    @media (hover: none) {
+      .feature-item:hover,
+      .retailer-logo:hover,
+      .notify-btn:hover {
+        transform: none;
+      }
+      
+      .feature-item:active,
+      .retailer-logo:active,
+      .notify-btn:active {
+        transform: scale(0.98);
+      }
+    }
+    
+    /* Print styles */
+    @media print {
+      .wrap {
+        box-shadow: none;
+        border: 2px solid #000;
+      }
+      
+      .notify-form,
+      .timer {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <img src="logo.png" alt="Dynaprizes Store App Logo" class="logo-img" />
+    
+    <div class="brand-name">DYNAPRIZES STORE</div>
+    <div class="brand-subtitle">YOUR ALL-IN-ONE SHOPPING APP</div>
+    
+    <div class="main-tagline">
+      Why download <span class="highlight">10 shopping apps</span> when <span class="highlight">ONE</span> does it all?
+    </div>
+    
+    <p class="secondary-tagline">
+      Your complete shopping solution. Shop from ALL stores in ONE app. Best prices guaranteed across Amazon, Flipkart, Myntra, Ajio, Meesho and more. Track everything in one place.
+    </p>
+    
+    <!-- Value Proposition -->
+    <div class="value-proposition">
+      <div class="value-title">Everything You Need in One App</div>
+      <ul class="value-list">
+        <li>
+          <span class="value-icon">✓</span>
+          <span class="value-text"><strong>Shop from ALL stores</strong> - Amazon, Flipkart, Myntra, Ajio, Meesho, TataCliq, Croma, Reliance Digital and more</span>
+        </li>
+        <li>
+          <span class="value-icon">✓</span>
+          <span class="value-text"><strong>Always get the best price</strong> - We compare prices across ALL stores automatically</span>
+        </li>
+        <li>
+          <span class="value-icon">✓</span>
+          <span class="value-text"><strong>Track ALL orders in one dashboard</strong> - No more switching between 10 apps to track deliveries</span>
+        </li>
+        <li>
+          <span class="value-icon">✓</span>
+          <span class="value-text"><strong>Automatic delivery updates</strong> - Get SMS alerts from ALL couriers in ONE place</span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Key Features Grid -->
+    <div class="features-grid">
+      <div class="feature-item">
+        <span class="feature-icon">🛒</span>
+        <span>Shop from 10+ Stores</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">💰</span>
+        <span>Best Price Guaranteed</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">📱</span>
+        <span>One App Does It All</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">📦</span>
+        <span>Track ALL Orders</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🔔</span>
+        <span>Automatic Alerts</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">⭐</span>
+        <span>Save Money</span>
+      </div>
+    </div>
+    
+    <!-- Timer Section - NOW COMES BEFORE App Benefit -->
+    <div class="timer-section">
+      <h2>Launching on April 21, 2026</h2>
+      
+      <div class="timer">
+        <div class="box">
+          <div id="days" class="value">136</div>
+          <div class="label">Days</div>
+        </div>
+        <div class="box">
+          <div id="hours" class="value">23</div>
+          <div class="label">Hours</div>
+        </div>
+        <div class="box">
+          <div id="mins" class="value">03</div>
+          <div class="label">Minutes</div>
+        </div>
+        <div class="box">
+          <div id="secs" class="value">50</div>
+          <div class="label">Seconds</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- App Benefit - NOW COMES AFTER Timer -->
+    <div class="app-benefit">
+      <h3>Your Complete Shopping Solution</h3>
+      <p>One app for all your shopping needs. No more switching between multiple apps. No more checking multiple websites for prices. Dynaprizes Store brings everything together in ONE place.</p>
+    </div>
+    
+    <!-- Notification Tabs -->
+    <div class="notify-section">
+      <div class="notify-tabs">
+        <button class="tab-btn active" data-tab="email-tab">📧 Email Updates</button>
+        <button class="tab-btn" data-tab="mobile-tab">📱 Mobile Updates</button>
+      </div>
+      
+      <div id="email-tab" class="tab-content active">
+        <form class="notify-form" id="notify-form-email">
+          <input
+            type="email"
+            id="notify-email"
+            class="notify-input"
+            placeholder="Enter your email for early access"
+            required
+          />
+          <button type="submit" class="notify-btn">Get Early Access</button>
+        </form>
+        <p class="small-text">Be among the first to experience shopping from ALL stores in ONE app. We'll notify you when we launch + exclusive early offers.</p>
+      </div>
+      
+      <div id="mobile-tab" class="tab-content">
+        <form class="notify-form" id="notify-form-mobile">
+          <input
+            type="tel"
+            id="notify-mobile"
+            class="notify-input"
+            placeholder="Enter your mobile number"
+            pattern="[0-9]{10}"
+            required
+          />
+          <button type="submit" class="notify-btn">Get SMS Updates</button>
+        </form>
+        <p class="small-text">Get WhatsApp/SMS updates about launch and special shopping offers.</p>
+      </div>
+    </div>
+    
+    <!-- Retailer Logos -->
+    <div class="retailer-logos">
+      <div class="retailer-logo">Amazon</div>
+      <div class="retailer-logo">Flipkart</div>
+      <div class="retailer-logo">Myntra</div>
+      <div class="retailer-logo">Ajio</div>
+      <div class="retailer-logo">Meesho</div>
+      <div class="retailer-logo">TataCliq</div>
+      <div class="retailer-logo">Croma</div>
+      <div class="retailer-logo">Reliance Digital</div>
+    </div>
+  </div>
+
+  <script>
+    // Updated launch date: 21 April 2026, 10:00 AM IST
+    const launchDate = new Date("2026-04-21T10:00:00+05:30").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = launchDate - now;
+
+      if (diff <= 0) {
+        document.querySelector(".timer-section h2").textContent = "We are live! 🎉 Download Now!";
+        document.querySelectorAll(".value").forEach(el => el.textContent = "00");
+        return;
+      }
+
+      const day  = 1000 * 60 * 60 * 24;
+      const hour = 1000 * 60 * 60;
+      const min  = 1000 * 60;
+      const sec  = 1000;
+
+      const days  = Math.floor(diff / day);
+      const hours = Math.floor((diff % day) / hour);
+      const mins  = Math.floor((diff % hour) / min);
+      const secs  = Math.floor((diff % min) / sec);
+
+      document.getElementById("days").textContent  = String(days).padStart(2, "0");
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("mins").textContent  = String(mins).padStart(2, "0");
+      document.getElementById("secs").textContent  = String(secs).padStart(2, "0");
+    }
+
+    // Tab functionality
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all tabs
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        btn.classList.add('active');
+        const tabId = btn.getAttribute('data-tab');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+
+    // Email form handler
+    document.getElementById("notify-form-email").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("notify-email").value.trim();
+      if (!email) return;
+      
+      // In production, send to your backend
+      fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          email, 
+          type: 'email',
+          source: 'dynaprizes_store_landing' 
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert(`🎉 Thank you! You're #${data.position || ''} on our waitlist. We'll email you when Dynaprizes Store launches - your complete shopping solution!`);
+        this.reset();
+      })
+      .catch(() => {
+        alert(`Thank you! We'll notify you when Dynaprizes Store launches - your all-in-one shopping app!`);
+        this.reset();
+      });
+    });
+
+    // Mobile form handler
+    document.getElementById("notify-form-mobile").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const mobile = document.getElementById("notify-mobile").value.trim();
+      if (!mobile) return;
+      
+      // In production, send to your backend
+      fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          mobile, 
+          type: 'mobile',
+          source: 'dynaprizes_store_landing' 
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert(`✅ Perfect! We'll send you SMS/WhatsApp updates about Dynaprizes Store - your complete shopping app!`);
+        this.reset();
+      })
+      .catch(() => {
+        alert(`Thank you! We'll send updates about your all-in-one shopping app!`);
+        this.reset();
+      });
+    });
+
+    // Handle mobile viewport height
+    function setVH() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    setVH();
+    window.addEventListener('resize', setVH);
+    
+    // Initialize countdown with actual values
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+      clearInterval(countdownInterval);
+    });
+  </script>
+  
+  <!-- HIDDEN SEO CONTENT -->
+  <div style="display: none; height: 0; width: 0; overflow: hidden;">
+    <h1>Dynaprizes Store - Your All-in-One Shopping App</h1>
+    <h2>Shop from ALL Stores in ONE App - Best Prices Guaranteed</h2>
+    <p>Dynaprizes Store is India's revolutionary all-in-one shopping app that lets you shop from Amazon, Flipkart, Myntra, Ajio, Meesho, TataCliq, Croma, Reliance Digital, Vijay Sales and Samsung Store - all in ONE application. Why download 10 different shopping apps when one does it all?</p>
+    <p>Dynaprizes Store features: Shop from all major retailers, compare prices automatically, track all orders in one dashboard, get automatic delivery updates, save money with best price guarantee, and shop from all stores in one app. Your complete shopping solution.</p>
+    <p>Launching April 21, 2026. Dynaprizes Store helps Indian shoppers save time and money by eliminating the need for multiple shopping apps. One app for all your shopping needs.</p>
+    <p>Keywords: dynaprizes store, all in one shopping app, shop from all stores one app, amazon flipkart myntra one app, best prices guaranteed, shopping app india, complete shopping solution, track all orders one app, one app does it all, launch april 2026, your shopping assistant</p>
+    <p>Why use 10 apps when one does it all? Dynaprizes Store - Your complete shopping solution with best prices across all stores.</p>
+    <h1>Dynaprizes Store</h1>
+    <h1>Dynaprizes</h1>
+
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Dynaprizes Store",
+  "url": "https://dynaprizes.com",
+  "description": "Your all-in-one shopping app with best prices across all stores",
+  "logo": "https://dynaprizes.com/dynaprizes-logo.jpg",
+  "sameAs": [
+    "https://www.instagram.com/dynaprizes_store"
+  ]
+}
+</script>
+</body>
+</html>
