@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynaprizes Waitlist Admin</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f59e0b; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <h1>📊 Dynaprizes Waitlist Admin</h1>
+    
+    <div id="stats">
+        <h2>📈 Live Stats</h2>
+        <p>Loading statistics...</p>
+    </div>
+    
+    <div id="users">
+        <h2>👥 All Waitlist Users</h2>
+        <p>Loading users...</p>
+    </div>
+    
+    <script>
+         // ========== CONFIGURATION ==========
+const BACKEND_BASE_URL = 'https://express-js-on-vercel-hazel-alpha-60.vercel.app';
+
+// API Endpoints
+const API_ENDPOINTS = {
+    stats: BACKEND_BASE_URL + '/api/waitlist/stats',
+    users: BACKEND_BASE_URL + '/api/waitlist/admin/users'
+};
+        // Load stats
+        fetch(API_ENDPOINTS.stats)
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('stats').innerHTML = `
+                    <h2>📈 Live Stats</h2>
+                    <p><strong>Total Users:</strong> ${data.total}</p>
+                    <p><strong>Joined Today:</strong> ${data.today}</p>
+                    <p><strong>Joined This Week:</strong> ${data.week}</p>
+                    <p><strong>Last Updated:</strong> ${new Date(data.timestamp).toLocaleString()}</p>
+                `;
+            })
+            .catch(e => {
+                document.getElementById('stats').innerHTML = 
+                    `<p style="color:red">Error loading stats: ${e.message}</p>`;
+            });
+        
+        // Load all users
+        fetch(API_ENDPOINTS.users)
+            .then(r => r.json())
+            .then(data => {
+                if (data.success && data.users.length > 0) {
+                    let html = `<h2>👥 All Waitlist Users (${data.total})</h2>`;
+                    html += `<table>
+                        <tr>
+                            <th>#</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Position</th>
+                            <th>Referral Code</th>
+                            <th>Joined At</th>
+                        </tr>`;
+                    
+                    data.users.forEach(user => {
+                        html += `<tr>
+                            <td>${user.position}</td>
+                            <td>${user.email}</td>
+                            <td>${user.mobile || 'N/A'}</td>
+                            <td>#${user.position}</td>
+                            <td>${user.referralCode || 'N/A'}</td>
+                            <td>${new Date(user.joinedAt).toLocaleString()}</td>
+                        </tr>`;
+                    });
+                    
+                    html += '</table>';
+                    document.getElementById('users').innerHTML = html;
+                } else {
+                    document.getElementById('users').innerHTML = 
+                        `<p>No users have joined yet. Share your website link!</p>`;
+                }
+            })
+            .catch(e => {
+                document.getElementById('users').innerHTML = 
+                    `<p style="color:red">Error loading users: ${e.message}</p>`;
+            });
+    </script>
+</body>
+</html>
