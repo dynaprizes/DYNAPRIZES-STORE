@@ -629,7 +629,7 @@
       </div>
       <div class="social-links">
         <a href="https://twitter.com/dynaprizes" class="social-link">🐦 Twitter</a>
-        <a href="https://instagram.com/dynaprizes_store" class="social-link">📸 Instagram</a>
+        <a href="https://www.instagram.com/dynaprizes?igsh=cTU5MnphaWlnbTVp" class="social-link">📸 Instagram</a>
         <a href="https://youtube.com/@dynaprizes" class="social-link">▶️ YouTube</a>
       </div>
     </div>
@@ -686,12 +686,9 @@
 
 <script>
   // BACKEND API URL
-const BACKEND_BASE = 'https://deplyement-timer-backend-1o9k.vercel.app';
-const API_ENDPOINTS = {
-  stats: BACKEND_BASE + '/api/waitlist/stats',
-  join: BACKEND_BASE + '/api/waitlist/join',
-  admin: BACKEND_BASE + '/api/waitlist/admin/users'
-};
+const BACKEND_BASE = 'https://express-js-on-vercel-hazel-alpha-60.vercel.app';
+const WAITLIST_API = BACKEND_BASE;
+
   const launchDate = new Date("2026-04-21T10:00:00+05:30").getTime();
   let waitlistCount = 5247;
   let dailyGrowth = 42;
@@ -720,7 +717,7 @@ const API_ENDPOINTS = {
   // Get real data from backend
   async function updateWaitlistWithRealData() {
     try {
-      const response = await fetch(`${WAITLIST_API}/stats`);
+      const response = await fetch(`${BACKEND_BASE}/api/waitlist/stats`);
       const data = await response.json();
       
       if (data.total >= 0) {
@@ -789,7 +786,7 @@ const API_ENDPOINTS = {
     submitBtn.disabled = true;
     
     try {
-      const response = await fetch(`${WAITLIST_API}/join`, {
+      const response = await fetch(`${BACKEND_BASE}/api/waitlist/join`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, mobile })
@@ -837,7 +834,7 @@ document.getElementById("mobileForm").addEventListener("submit", async function(
   submitBtn.disabled = true;
   
   try {
-    const response = await fetch(`${WAITLIST_API}/join`, {
+    const response = await fetch(`${BACKEND_BASE}/api/waitlist/join`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: '', mobile: cleanMobile })
@@ -884,7 +881,7 @@ document.getElementById("emailForm").addEventListener("submit", async function(e
   submitBtn.disabled = true;
   
   try {
-    const response = await fetch(`${WAITLIST_API}/join`, {
+    const response = await fetch(`${BACKEND_BASE}/api/waitlist/join`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, mobile: '' })
@@ -934,4 +931,5 @@ document.getElementById("emailForm").addEventListener("submit", async function(e
     <p>Shop from Amazon, Flipkart, Myntra, Ajio & more in ONE app. Best prices guaranteed. Track all orders in one place. Launching April 2026.</p>
   </div>
 </body>
+
 </html>
