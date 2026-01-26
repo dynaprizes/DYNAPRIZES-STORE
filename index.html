@@ -768,54 +768,6 @@ const WAITLIST_API = BACKEND_BASE + '/api/waitlist';
 
   // ========== FORM HANDLERS ==========
 
-  // EMAIL FORM HANDLER
-  document.getElementById("emailForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-    
-    const email = document.getElementById('email').value.trim();
-    const mobile = ''; // Empty for email-only form
-    
-    if (!email || !email.includes('@')) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-    
-    const submitBtn = this.querySelector('.waitlist-btn');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Joining...';
-    submitBtn.disabled = true;
-    
-    try {
-      const response = await fetch(`${WAITLIST_API}/join`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, mobile })
-      });
-      
-      const data = await response.json();
-      
-      if (data.success) {
-        alert(`🎉 ${data.message}\nYour position: #${data.position}\nReferral code: ${data.referralCode}`);
-        document.getElementById('email').value = '';
-        
-        // Update referral code display if available
-        if (data.referralCode) {
-          document.getElementById('userReferralCode').textContent = data.referralCode;
-        }
-        
-        updateWaitlistWithRealData();
-      } else {
-        alert(`ℹ️ ${data.error || data.message || 'Something went wrong'}`);
-      }
-    } catch (error) {
-      alert('⚠️ Connection error. Please try again.');
-      console.error('Email form error:', error);
-    }
-    
-    submitBtn.textContent = originalText;
-    submitBtn.disabled = false;
-  });
-
 // MOBILE FORM HANDLER (UPDATED FOR NEW BACKEND)
 document.getElementById("mobileForm").addEventListener("submit", async function(e) {
   e.preventDefault();
@@ -932,4 +884,5 @@ document.getElementById("emailForm").addEventListener("submit", async function(e
   </div>
 </body>
 </html>
+
 
