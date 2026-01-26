@@ -593,50 +593,8 @@
         </div>
       </div>
     </div>
-    
-  <!-- KINSTA-STYLE WAITLIST SECTION -->
-<div class="kinsta-waitlist">
-  <div class="kinsta-title">🚀 Be Among The First</div>
-  
-  <div class="kinsta-counter" id="waitlistCounter">0</div>
-  <div class="kinsta-subtitle">
-    Join the waitlist for exclusive early access
-    <span class="kinsta-stats" id="realStats">Be the first to join!</span>
-  </div>
-  
-  <!-- Referral System -->
-  <div class="referral-box">
-    <div class="referral-title">🔥 Get Early Access Faster</div>
-    <p style="color: #cbd5e1; margin: 10px 0; font-size: 0.95rem;">
-      Invite friends to move up in line. Share your link:
-    </p>
-    <div class="referral-link">
-      https://dynaprizes.com/?ref=<span id="userReferralCode">YOURCODE</span>
-    </div>
-    <button class="copy-btn" onclick="copyReferralLink()">📋 Copy Your Referral Link</button>
-    <div class="position-info" id="realPositionInfo">
-      Join waitlist to get your unique referral code!
-    </div>
-  </div>
-  
-  <!-- Dynaprizes Team Building in Public -->
-  <div class="team-card">
-    <div class="team-avatar">DT</div>
-    <div class="team-content">
-      <div class="team-name">Dynaprizes Team</div>
-      <div class="team-desc">
-        <strong>Building in public.</strong> Daily updates on our journey. Follow along!
-      </div>
-      <div class="social-links">
-        <a href="https://twitter.com/dynaprizes" class="social-link">🐦 Twitter</a>
-        <a href="https://instagram.com/dynaprizes_store" class="social-link">📸 Instagram</a>
-        <a href="https://youtube.com/@dynaprizes" class="social-link">▶️ YouTube</a>
-      </div>
-    </div>
-  </div>
-</div>
-    
-<!-- Improved Waitlist Forms -->
+
+<!-- Improved Waitlist Forms - MOVED HERE (AFTER TIMER, BEFORE LIVE COUNTDOWN) -->
 <div class="waitlist-section">
 
   <!-- CHANGE 1: Mobile Form FIRST -->
@@ -683,6 +641,49 @@
 </div>
 
 <p class="form-note">We'll notify you when we launch + exclusive early offers.</p>
+    
+  <!-- KINSTA-STYLE WAITLIST SECTION -->
+<div class="kinsta-waitlist">
+  <div class="kinsta-title">🚀 Be Among The First</div>
+  
+  <div class="kinsta-counter" id="waitlistCounter">0</div>
+  <div class="kinsta-subtitle">
+    Join the waitlist for exclusive early access
+    <span class="kinsta-stats" id="realStats">Be the first to join!</span>
+  </div>
+  
+  <!-- Referral System -->
+  <div class="referral-box">
+    <div class="referral-title">🔥 Get Early Access Faster</div>
+    <p style="color: #cbd5e1; margin: 10px 0; font-size: 0.95rem;">
+      Invite friends to move up in line. Share your link:
+    </p>
+    <div class="referral-link">
+      https://dynaprizes.com/?ref=<span id="userReferralCode">YOURCODE</span>
+    </div>
+    <button class="copy-btn" onclick="copyReferralLink()">📋 Copy Your Referral Link</button>
+    <div class="position-info" id="realPositionInfo">
+      Join waitlist to get your unique referral code!
+    </div>
+  </div>
+  
+  <!-- Dynaprizes Team Building in Public -->
+  <div class="team-card">
+    <div class="team-avatar">DT</div>
+    <div class="team-content">
+      <div class="team-name">Dynaprizes Team</div>
+      <div class="team-desc">
+        <strong>Building in public.</strong> Daily updates on our journey. Follow along!
+      </div>
+      <div class="social-links">
+        <a href="https://twitter.com/dynaprizes" class="social-link">🐦 Twitter</a>
+        <a href="https://instagram.com/dynaprizes_store" class="social-link">📸 Instagram</a>
+        <a href="https://youtube.com/@dynaprizes" class="social-link">▶️ YouTube</a>
+      </div>
+    </div>
+  </div>
+</div>
+    
 
 <script>
   // BACKEND API URL
@@ -765,59 +766,14 @@ const WAITLIST_API = BACKEND_BASE + '/api/waitlist';
     });
   }
 
-  // MOBILE FORM HANDLER (WORKS PERFECTLY - NO CHANGE)
-  document.getElementById("mobileForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-    
-    const mobile = document.getElementById('mobileOnly').value.trim();
-    const cleanMobile = mobile.replace(/\D/g, '');
-    
-    if (!cleanMobile || cleanMobile.length < 10) {
-      alert('Please enter a valid mobile number (10+ digits)');
-      return;
-    }
-    
-    const submitBtn = this.querySelector('.waitlist-btn');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Joining...';
-    submitBtn.disabled = true;
-    
-    try {
-      const response = await fetch(`${WAITLIST_API}/join`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: '', mobile: cleanMobile })
-      });
-      
-      const data = await response.json();
-      
-      if (data.success) {
-        alert(`✅ ${data.message}\nPosition: #${data.position}\nWe'll SMS you at launch!`);
-        document.getElementById('mobileOnly').value = '';
-        
-        // Update referral code display
-        if (data.referralCode) {
-          document.getElementById('userReferralCode').textContent = data.referralCode;
-        }
-        
-        updateWaitlistWithRealData();
-      } else {
-        alert(`ℹ️ ${data.error || 'Something went wrong'}`);
-      }
-    } catch (error) {
-      alert('⚠️ Connection error. Please try again.');
-      console.error('Mobile form error:', error);
-    }
-    
-    submitBtn.textContent = originalText;
-    submitBtn.disabled = false;
-  });
+  // ========== FORM HANDLERS ==========
 
-  // CHANGE 2: EMAIL FORM FIXED TO WORK LIKE MOBILE FORM
+  // EMAIL FORM HANDLER
   document.getElementById("emailForm").addEventListener("submit", async function(e) {
     e.preventDefault();
     
     const email = document.getElementById('email').value.trim();
+    const mobile = ''; // Empty for email-only form
     
     if (!email || !email.includes('@')) {
       alert('Please enter a valid email address.');
@@ -830,28 +786,25 @@ const WAITLIST_API = BACKEND_BASE + '/api/waitlist';
     submitBtn.disabled = true;
     
     try {
-      // SEND EXACTLY THE SAME FORMAT AS MOBILE FORM
       const response = await fetch(`${WAITLIST_API}/join`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, mobile: '' })
+        body: JSON.stringify({ email, mobile })
       });
       
       const data = await response.json();
       
-      // CHANGE 2: Use same success/error handling as mobile form
       if (data.success) {
-        alert(`✅ ${data.message}\nPosition: #${data.position}\nReferral code: ${data.referralCode}`);
+        alert(`🎉 ${data.message}\nYour position: #${data.position}\nReferral code: ${data.referralCode}`);
         document.getElementById('email').value = '';
         
-        // Update referral code display
+        // Update referral code display if available
         if (data.referralCode) {
           document.getElementById('userReferralCode').textContent = data.referralCode;
         }
         
         updateWaitlistWithRealData();
       } else {
-        // CHANGE 2: Show error message from backend like mobile form does
         alert(`ℹ️ ${data.error || data.message || 'Something went wrong'}`);
       }
     } catch (error) {
@@ -862,6 +815,101 @@ const WAITLIST_API = BACKEND_BASE + '/api/waitlist';
     submitBtn.textContent = originalText;
     submitBtn.disabled = false;
   });
+
+// MOBILE FORM HANDLER (UPDATED FOR NEW BACKEND)
+document.getElementById("mobileForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  
+  const mobile = document.getElementById('mobileOnly').value.trim();
+  const cleanMobile = mobile.replace(/\D/g, '');
+  
+  if (!cleanMobile || cleanMobile.length < 10) {
+    alert('Please enter a valid mobile number (10+ digits)');
+    return;
+  }
+  
+  const submitBtn = this.querySelector('.waitlist-btn');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Joining...';
+  submitBtn.disabled = true;
+  
+  try {
+    const response = await fetch(`${WAITLIST_API}/join`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: '', mobile: cleanMobile })
+    });
+    
+    const data = await response.json();
+    
+    if (data.success) {
+      alert(`✅ ${data.message}\nPosition: #${data.position}\nWe'll SMS you at launch!`);
+      document.getElementById('mobileOnly').value = '';
+      
+      // Update referral code display
+      if (data.referralCode) {
+        document.getElementById('userReferralCode').textContent = data.referralCode;
+      }
+      
+      updateWaitlistWithRealData();
+    } else {
+      alert(`ℹ️ ${data.error || 'Something went wrong'}`);
+    }
+  } catch (error) {
+    alert('⚠️ Connection error. Please try again.');
+    console.error('Mobile form error:', error);
+  }
+  
+  submitBtn.textContent = originalText;
+  submitBtn.disabled = false;
+});
+
+// CHANGE 2: EMAIL FORM HANDLER (UPDATED TO WORK LIKE MOBILE FORM)
+document.getElementById("emailForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  
+  const email = document.getElementById('email').value.trim();
+  
+  if (!email || !email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  
+  const submitBtn = this.querySelector('.waitlist-btn');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Joining...';
+  submitBtn.disabled = true;
+  
+  try {
+    const response = await fetch(`${WAITLIST_API}/join`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, mobile: '' })
+    });
+    
+    const data = await response.json();
+    
+    if (data.success) {
+      alert(`✅ ${data.message}\nPosition: #${data.position}\nReferral code: ${data.referralCode}`);
+      document.getElementById('email').value = '';
+      
+      // Update referral code display
+      if (data.referralCode) {
+        document.getElementById('userReferralCode').textContent = data.referralCode;
+      }
+      
+      updateWaitlistWithRealData();
+    } else {
+      alert(`ℹ️ ${data.error || 'Something went wrong'}`);
+    }
+  } catch (error) {
+    alert('⚠️ Connection error. Please try again.');
+    console.error('Email form error:', error);
+  }
+  
+  submitBtn.textContent = originalText;
+  submitBtn.disabled = false;
+});
 
   // Initialize everything
   updateTimer();
