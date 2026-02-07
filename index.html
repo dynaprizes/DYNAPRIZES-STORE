@@ -595,12 +595,11 @@
       </div>
     </div>
 
-<!-- Improved Waitlist Forms - MOVED HERE (AFTER TIMER, BEFORE LIVE COUNTDOWN) -->
+<!-- Improved Waitlist Form - Only Mobile -->
 <div class="waitlist-section">
-
-  <!-- CHANGE 1: Mobile Form FIRST -->
+  <!-- Mobile Form ONLY -->
   <div class="waitlist-box improved-box">
-    <h3 class="waitlist-title">📱 Get SMS Updates</h3>
+    <h3 class="waitlist-title">📱 Join Waitlist</h3>
 
     <form id="mobileForm" class="waitlist-form">
       <div class="input-wrapper">
@@ -613,7 +612,7 @@
       </div>
 
       <button type="submit" class="waitlist-btn improved-btn">
-        Join with Mobile
+        Join Waitlist
       </button>
     </form>
   </div>
@@ -745,102 +744,53 @@ const WAITLIST_API = BACKEND_BASE + '/api/waitlist';
     });
   }
 
-  // ========== FORM HANDLERS ==========
-
-// MOBILE FORM HANDLER (UPDATED FOR NEW BACKEND)
-document.getElementById("mobileForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-  
-  const mobile = document.getElementById('mobileOnly').value.trim();
-  const cleanMobile = mobile.replace(/\D/g, '');
-  
-  if (!cleanMobile || cleanMobile.length < 10) {
-    alert('Please enter a valid mobile number (10+ digits)');
-    return;
-  }
-  
-  const submitBtn = this.querySelector('.waitlist-btn');
-  const originalText = submitBtn.textContent;
-  submitBtn.textContent = 'Joining...';
-  submitBtn.disabled = true;
-  
-  try {
-    const response = await fetch(`${WAITLIST_API}/join`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: '', mobile: cleanMobile })
-    });
+  // ========== MOBILE FORM HANDLER ==========
+  document.getElementById("mobileForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
     
-    const data = await response.json();
+    const mobile = document.getElementById('mobileOnly').value.trim();
+    const cleanMobile = mobile.replace(/\D/g, '');
     
-    if (data.success) {
-      alert(`✅ ${data.message}\nPosition: #${data.position}\nWe'll SMS you at launch!`);
-      document.getElementById('mobileOnly').value = '';
-      
-      // Update referral code display
-      if (data.referralCode) {
-        document.getElementById('userReferralCode').textContent = data.referralCode;
-      }
-      
-      updateWaitlistWithRealData();
-    } else {
-      alert(`ℹ️ ${data.error || 'Something went wrong'}`);
+    if (!cleanMobile || cleanMobile.length < 10) {
+      alert('Please enter a valid mobile number (10+ digits)');
+      return;
     }
-  } catch (error) {
-    alert('⚠️ Connection error. Please try again.');
-    console.error('Mobile form error:', error);
-  }
-  
-  submitBtn.textContent = originalText;
-  submitBtn.disabled = false;
-});
-
-// CHANGE 2: EMAIL FORM HANDLER (UPDATED TO WORK LIKE MOBILE FORM)
-document.getElementById("emailForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-  
-  const email = document.getElementById('email').value.trim();
-  
-  if (!email || !email.includes('@')) {
-    alert('Please enter a valid email address.');
-    return;
-  }
-  
-  const submitBtn = this.querySelector('.waitlist-btn');
-  const originalText = submitBtn.textContent;
-  submitBtn.textContent = 'Joining...';
-  submitBtn.disabled = true;
-  
-  try {
-    const response = await fetch(`${WAITLIST_API}/join`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, mobile: '' })
-    });
     
-    const data = await response.json();
+    const submitBtn = this.querySelector('.waitlist-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Joining...';
+    submitBtn.disabled = true;
     
-    if (data.success) {
-      alert(`✅ ${data.message}\nPosition: #${data.position}\nReferral code: ${data.referralCode}`);
-      document.getElementById('email').value = '';
+    try {
+      const response = await fetch(`${WAITLIST_API}/join`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mobile: cleanMobile })
+      });
       
-      // Update referral code display
-      if (data.referralCode) {
-        document.getElementById('userReferralCode').textContent = data.referralCode;
+      const data = await response.json();
+      
+      if (data.success) {
+        alert(`✅ ${data.message}\nPosition: #${data.position}\nWe'll SMS you at launch!`);
+        document.getElementById('mobileOnly').value = '';
+        
+        // Update referral code display
+        if (data.referralCode) {
+          document.getElementById('userReferralCode').textContent = data.referralCode;
+        }
+        
+        updateWaitlistWithRealData();
+      } else {
+        alert(`ℹ️ ${data.error || 'Something went wrong'}`);
       }
-      
-      updateWaitlistWithRealData();
-    } else {
-      alert(`ℹ️ ${data.error || 'Something went wrong'}`);
+    } catch (error) {
+      alert('⚠️ Connection error. Please try again.');
+      console.error('Mobile form error:', error);
     }
-  } catch (error) {
-    alert('⚠️ Connection error. Please try again.');
-    console.error('Email form error:', error);
-  }
-  
-  submitBtn.textContent = originalText;
-  submitBtn.disabled = false;
-});
+    
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+  });
 
   // Initialize everything
   updateTimer();
@@ -859,11 +809,7 @@ document.getElementById("emailForm").addEventListener("submit", async function(e
   <!-- SEO Content -->
   <div style="display: none;">
     <h1>Dynaprizes Store - All-in-One Shopping App</h1>
-    <p>Shop from Amazon, Flipkart, Myntra, Ajio & more in ONE app. Best prices guaranteed. Track all orders in one place. Launching April 2026.</p>
+    <p>Shop from Amazon, Flipkart, Myntra, Nykaa & more in ONE app. Best prices guaranteed. Track all orders in one place. Launching April 2026.</p>
   </div>
 </body>
 </html>
-
-
-
-
