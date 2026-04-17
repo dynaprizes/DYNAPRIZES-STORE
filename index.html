@@ -137,30 +137,6 @@
       margin-bottom: 30px;
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: #1a56db;
-      color: white;
-      padding: 14px 32px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.2s;
-      display: inline-block;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary:hover {
-      background: #1240a8;
-      transform: translateY(-2px);
-    }
-
     .hero-image {
       text-align: center;
     }
@@ -252,62 +228,6 @@
       font-weight: 500;
       color: #4a5568;
       border: 1px solid #e5e7eb;
-    }
-
-    /* Waitlist Section */
-    .waitlist-section {
-      background: linear-gradient(135deg, #0f3460, #1a56db);
-      border-radius: 30px;
-      padding: 50px;
-      text-align: center;
-      margin-bottom: 60px;
-      color: white;
-    }
-
-    .waitlist-section h2 {
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
-
-    .waitlist-section p {
-      margin-bottom: 30px;
-      opacity: 0.9;
-    }
-
-    .waitlist-form {
-      display: flex;
-      gap: 15px;
-      max-width: 500px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .waitlist-input {
-      flex: 1;
-      padding: 16px 20px;
-      border: none;
-      border-radius: 50px;
-      font-size: 16px;
-      outline: none;
-      min-width: 250px;
-    }
-
-    .waitlist-btn {
-      background: #f59e0b;
-      color: #0f3460;
-      border: none;
-      padding: 16px 32px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .waitlist-btn:hover {
-      background: #facc6b;
-      transform: translateY(-2px);
     }
 
     /* Founders Section */
@@ -473,20 +393,8 @@
         font-size: 36px;
       }
 
-      .hero-buttons {
-        justify-content: center;
-      }
-
       .section-title {
         font-size: 28px;
-      }
-
-      .waitlist-section {
-        padding: 30px 20px;
-      }
-
-      .waitlist-section h2 {
-        font-size: 24px;
       }
 
       .page-content {
@@ -505,10 +413,6 @@
 
       .hero-content h1 {
         font-size: 28px;
-      }
-
-      .btn-primary {
-        padding: 12px 24px;
       }
 
       .features-grid {
@@ -549,9 +453,6 @@
       <div class="hero-content">
         <h1>India's First<br>Shopping Super-App</h1>
         <p>Compare prices across Amazon, Flipkart, Myntra & 10+ stores. Track all orders in one place. Coming April 21, 2026.</p>
-        <div class="hero-buttons">
-          <a class="btn-primary" onclick="document.getElementById('mobileOnly').focus(); return false;">Join Waitlist</a>
-        </div>
       </div>
       <div class="hero-image">
         <img src="logo.png" alt="DynaPrizes" style="width: 180px; height: auto; max-width: 100%;">
@@ -617,17 +518,6 @@
         <p class="founder-title">Co-Founder & CTO</p>
         <p class="founder-desc">Building India's first shopping super-app with intelligent price comparison.</p>
       </div>
-    </div>
-
-    <!-- Waitlist -->
-    <div class="waitlist-section">
-      <h2>🚀 Join the Waitlist</h2>
-      <p>Be the first to know when we launch. Get exclusive early access offers.</p>
-      <form id="mobileForm" class="waitlist-form">
-        <input type="tel" id="mobileOnly" class="waitlist-input" placeholder="Enter your mobile number" maxlength="10">
-        <button type="submit" class="waitlist-btn">Join Waitlist →</button>
-      </form>
-      <p style="margin-top: 20px; font-size: 12px; opacity: 0.7;">We'll notify you via SMS. No spam, ever.</p>
     </div>
   </div>
 
@@ -765,9 +655,6 @@
 </footer>
 
 <script>
-  const BACKEND_BASE = 'https://express-js-on-vercel-hazel-alpha-60.vercel.app';
-  const WAITLIST_API = BACKEND_BASE + '/api/waitlist';
-
   function showPage(pageName) {
     document.getElementById('homePage').classList.remove('active');
     document.getElementById('privacyPage').classList.remove('active');
@@ -778,46 +665,6 @@
     document.getElementById(pageName + 'Page').classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
-  // Mobile Form Handler
-  document.getElementById("mobileForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-    
-    const mobile = document.getElementById('mobileOnly').value.trim();
-    const cleanMobile = mobile.replace(/\D/g, '');
-    
-    if (!cleanMobile || cleanMobile.length < 10) {
-      alert('Please enter a valid 10-digit mobile number');
-      return;
-    }
-    
-    const submitBtn = this.querySelector('.waitlist-btn');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Joining...';
-    submitBtn.disabled = true;
-    
-    try {
-      const response = await fetch(`${WAITLIST_API}/join`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mobile: cleanMobile })
-      });
-      
-      const data = await response.json();
-      
-      if (data.success) {
-        alert(`✅ ${data.message}\nPosition: #${data.position}\nWe'll SMS you at launch!`);
-        document.getElementById('mobileOnly').value = '';
-      } else {
-        alert(`ℹ️ ${data.error || 'Something went wrong'}`);
-      }
-    } catch (error) {
-      alert('⚠️ Connection error. Please try again.');
-    }
-    
-    submitBtn.textContent = originalText;
-    submitBtn.disabled = false;
-  });
 </script>
 </body>
 </html>
