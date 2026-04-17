@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="verify-admitad" content="41bcb15e71" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1, maximum-scale=1, user-scalable=yes">
-  <title>DynaPrizes - India's First Shopping Super-App </title>
+  <title>DynaPrizes - India's First Shopping Super-App | Coming April 2026</title>
   <meta name="description" content="Compare prices across Amazon, Flipkart, Myntra & 10+ stores. Track all orders in one place. India's most intelligent shopping app.">
   <meta name="keywords" content="price comparison, shopping app, amazon flipkart myntra, best deals india">
   <meta name="author" content="DynaPrizes">
@@ -66,14 +66,7 @@
     .logo {
       width: 45px;
       height: 45px;
-      background: linear-gradient(135deg, #facc6b, #f59e0b);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 20px;
-      color: #0f3460;
+      object-fit: contain;
     }
 
     .logo-text h1 {
@@ -104,6 +97,7 @@
       font-size: 14px;
       font-weight: 500;
       transition: all 0.2s;
+      cursor: pointer;
     }
 
     .nav-link:hover {
@@ -165,32 +159,8 @@
       transform: translateY(-2px);
     }
 
-    .btn-outline {
-      border: 2px solid #1a56db;
-      color: #1a56db;
-      padding: 12px 30px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.2s;
-      display: inline-block;
-    }
-
-    .btn-outline:hover {
-      background: #1a56db;
-      color: white;
-    }
-
     .hero-image {
-      background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
-      border-radius: 30px;
-      padding: 40px;
       text-align: center;
-    }
-
-    .hero-image img {
-      max-width: 100%;
-      height: auto;
     }
 
     /* Features Grid */
@@ -413,6 +383,7 @@
       text-decoration: none;
       margin-bottom: 12px;
       transition: color 0.2s;
+      cursor: pointer;
     }
 
     .footer-col a:hover {
@@ -534,7 +505,7 @@
         font-size: 28px;
       }
 
-      .btn-primary, .btn-outline {
+      .btn-primary {
         padding: 12px 24px;
       }
 
@@ -557,11 +528,11 @@
       </div>
     </div>
     <nav class="nav-links">
-      <a href="#" class="nav-link" onclick="showPage('home'); return false;">Home</a>
-      <a href="#" class="nav-link" onclick="showPage('privacy'); return false;">Privacy</a>
-      <a href="#" class="nav-link" onclick="showPage('terms'); return false;">Terms</a>
-      <a href="#" class="nav-link" onclick="showPage('affiliate'); return false;">Affiliate</a>
-      <a href="#" class="nav-link" onclick="showPage('contact'); return false;">Contact</a>
+      <a class="nav-link" onclick="showPage('home'); return false;">Home</a>
+      <a class="nav-link" onclick="showPage('privacy'); return false;">Privacy</a>
+      <a class="nav-link" onclick="showPage('terms'); return false;">Terms</a>
+      <a class="nav-link" onclick="showPage('affiliate'); return false;">Affiliate</a>
+      <a class="nav-link" onclick="showPage('contact'); return false;">Contact</a>
     </nav>
   </div>
 </header>
@@ -577,12 +548,12 @@
         <h1>India's First<br>Mobile-Native Shopping Super-App</h1>
         <p>Compare prices across Amazon, Flipkart, Myntra & 10+ stores. Track all orders in one place. Coming April 21, 2026.</p>
         <div class="hero-buttons">
-          <a href="#" class="btn-primary" onclick="document.getElementById('mobileOnly').focus(); return false;">Join Waitlist</a>
+          <a class="btn-primary" onclick="document.getElementById('mobileOnly').focus(); return false;">Join Waitlist</a>
         </div>
       </div>
       <div class="hero-image">
-  <img src="logo.png" alt="DynaPrizes" style="width: 200px; height: auto; max-width: 100%;">
-</div>
+        <img src="logo.png" alt="DynaPrizes" style="width: 180px; height: auto; max-width: 100%;">
+      </div>
     </div>
 
     <!-- Features -->
@@ -596,7 +567,7 @@
       <div class="feature-card">
         <div class="feature-icon">📦</div>
         <h3>Order Tracking</h3>
-        <p>Track all your orders from Amazon, Flipkart, Myntra in one unified dashboard(Coming Phase 2).</p>
+        <p>Track all your orders from Amazon, Flipkart, Myntra in one unified dashboard.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🔔</div>
@@ -623,7 +594,6 @@
         <span class="store-item">Croma</span>
         <span class="store-item">Tata CLiQ</span>
         <span class="store-item">Meesho</span>
-        <span class="store-item">more+</span>
       </div>
       <div class="affiliate-badge">
         🛍️ As an Amazon Associate, DynaPrizes earns from qualifying purchases.
@@ -648,7 +618,7 @@
     </div>
 
     <!-- Waitlist -->
-    <!-- <div class="waitlist-section">
+    <div class="waitlist-section">
       <h2>🚀 Join the Waitlist</h2>
       <p>Be the first to know when we launch. Get exclusive early access offers.</p>
       <form id="mobileForm" class="waitlist-form">
@@ -657,7 +627,7 @@
       </form>
       <p style="margin-top: 20px; font-size: 12px; opacity: 0.7;">We'll notify you via SMS. No spam, ever.</p>
     </div>
-  </div> --!>
+  </div>
 
   <!-- PRIVACY POLICY PAGE -->
   <div id="privacyPage" class="page-content">
@@ -687,7 +657,7 @@
     <p>You can access, correct, or delete your data anytime from Account Settings.</p>
 
     <h2>5. Contact Us</h2>
-    <p>Email: contact.dynaprizes@gmail.com</p>
+    <p>Email: privacy@dynaprizes.com</p>
   </div>
 
   <!-- TERMS OF SERVICE PAGE -->
@@ -708,7 +678,7 @@
     <p>DynaPrizes is not responsible for retailer pricing, availability, or transaction issues. All purchases are made directly with retailers.</p>
 
     <h2>5. Contact</h2>
-    <p>Email: contact.dynaprizes@gmail.com</p>
+    <p>Email: legal@dynaprizes.com</p>
   </div>
 
   <!-- AFFILIATE DISCLOSURE PAGE -->
@@ -750,7 +720,7 @@
     📸 Instagram: @dynaprizes_store</p>
     
     <h3>Office</h3>
-    <p>📍 New Delhi, India-110044</p>
+    <p>📍 Bengaluru, Karnataka, India - 560001</p>
   </div>
 </div>
 
@@ -759,32 +729,32 @@
   <div class="footer-container">
     <div class="footer-col">
       <h4>DynaPrizes</h4>
-      <a href="#" onclick="showPage('home'); return false;">Home</a>
-      <a href="#" onclick="showPage('privacy'); return false;">Privacy Policy</a>
-      <a href="#" onclick="showPage('terms'); return false;">Terms of Service</a>
-      <a href="#" onclick="showPage('affiliate'); return false;">Affiliate Disclosure</a>
-      <a href="#" onclick="showPage('contact'); return false;">Contact Us</a>
+      <a onclick="showPage('home'); return false;">Home</a>
+      <a onclick="showPage('privacy'); return false;">Privacy Policy</a>
+      <a onclick="showPage('terms'); return false;">Terms of Service</a>
+      <a onclick="showPage('affiliate'); return false;">Affiliate Disclosure</a>
+      <a onclick="showPage('contact'); return false;">Contact Us</a>
     </div>
     <div class="footer-col">
       <h4>Product</h4>
-      <a href="#">Features</a>
-      <a href="#">Price Comparison</a>
-      <a href="#">Order Tracking</a>
-      <a href="#">Price Alerts</a>
+      <a onclick="showPage('home'); return false;">Features</a>
+      <a onclick="showPage('home'); return false;">Price Comparison</a>
+      <a onclick="showPage('home'); return false;">Order Tracking</a>
+      <a onclick="showPage('home'); return false;">Price Alerts</a>
     </div>
     <div class="footer-col">
       <h4>Support</h4>
-      <a href="#">Help Center</a>
-      <a href="#">FAQs</a>
-      <a href="#">Report Issue</a>
-      <a href="#">Feedback</a>
+      <a onclick="showPage('contact'); return false;">Help Center</a>
+      <a onclick="showPage('contact'); return false;">FAQs</a>
+      <a onclick="showPage('contact'); return false;">Report Issue</a>
+      <a onclick="showPage('contact'); return false;">Feedback</a>
     </div>
     <div class="footer-col">
       <h4>Connect</h4>
-      <a href="#">Twitter</a>
-      <a href="#">Instagram</a>
-      <a href="#">YouTube</a>
-      <a href="#">LinkedIn</a>
+      <a href="https://twitter.com/dynaprizes" target="_blank">Twitter</a>
+      <a href="https://instagram.com/dynaprizes_store" target="_blank">Instagram</a>
+      <a onclick="showPage('home'); return false;">YouTube</a>
+      <a onclick="showPage('contact'); return false;">LinkedIn</a>
     </div>
   </div>
   <div class="footer-bottom">
